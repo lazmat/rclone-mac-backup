@@ -69,6 +69,7 @@ Each names the check that enforces it (rule 15). "OPEN" means the check does not
 - Model roles: on the Mac, `AI-OS/Runtime/models.toml`. In Cursor: composer-2.5 or grok-4.7, standard (never Fast), medium effort, never Opus; the Other Models pool only for occasional review. The verifier's family differs from the builder's. (19, 9)
 - Work runs on the Cursor private worker on the Mac, each unit in its own fresh GitHub clone, as many in parallel as the Mac has room for (check free memory and swap before heavy steps). (6, 16)
 - First understand the task, break it into independent sections, and run them in parallel as separate agents on separate branches to finish faster, without compromising quality. (6, 16)
+- When any agent gets stuck, stops or drops, investigate the root cause and add a permanent prevention (rule, hook, script or lessons entry) so it cannot repeat for the same reason. (3, 15)
 - On the Mac, the Grok CLI builds and Composer verifies. (9)
 - On Cursor cloud agents, Composer builds and the Grok CLI verifies. (9)
 - Builder and verifier are always two different models. (9)

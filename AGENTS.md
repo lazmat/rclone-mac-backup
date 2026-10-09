@@ -3,6 +3,7 @@
 ## Who builds (house rules, see LAUREN-RULES.md)
 
 - First understand the task, break it into independent sections, and run them in parallel as separate agents on separate branches to finish faster, without compromising quality.
+- When an agent gets stuck, stops or drops: investigate root cause and add a permanent prevention (rule, hook, script, or `docs/LESSONS.md` entry) so the same failure cannot repeat. (Rule C)
 - mcode is BANNED (runaway memory).
 - On the Mac: Grok CLI builds; Composer verifies.
 - When Lazaros has approved cloud again: on Cursor cloud agents, Composer 2.5 builds (Fast off); Grok 4.7 verifies as a Cursor model at medium effort (never Fast). The Grok CLI cannot run in cloud agents.

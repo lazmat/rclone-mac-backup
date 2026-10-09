@@ -1,0 +1,10 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      { "hooks": [ { "type": "command", "command": "python3 $HOME/.local/bin/os-lauren/pretool-guard.py", "timeout": 5 } ] }
+    ],
+    "Stop": [
+      { "hooks": [ { "type": "command", "command": "python3 $HOME/.local/bin/os-lauren/stop-guard.py", "timeout": 20 } ] }
+    ]
+  }
+}

@@ -2,11 +2,12 @@
 
 ## Who builds (house rules, see LAUREN-RULES.md)
 
+- First understand the task, break it into independent sections, and run them in parallel as separate agents on separate branches to finish faster, without compromising quality.
 - mcode is BANNED (runaway memory).
 - On the Mac: Grok CLI builds; Composer verifies.
-- On Cursor cloud agents: Composer 2.5 builds (Fast off); Grok 4.7 verifies as a Cursor model at medium effort (never Fast). The Grok CLI does not run in cloud agents.
+- When Lazaros has approved cloud again: on Cursor cloud agents, Composer 2.5 builds (Fast off); Grok 4.7 verifies as a Cursor model at medium effort (never Fast). The Grok CLI cannot run in cloud agents.
 - Builder and verifier are always two different models.
-- Use cloud agents without asking when the Mac is the bottleneck (swap near full or jobs queued); otherwise prefer the Mac worker.
+- NO new Cursor cloud agents while Lazaros is on the Mac; all new jobs go to local Mac agents via the private worker until he says cloud is approved again. Running cloud agents finish where they are. When Lazaros has approved cloud again, see LAUREN-RULES.md for cloud model roles.
 - Read `docs/LESSONS.md` at the start of every job.
 
 ## Visible agents only

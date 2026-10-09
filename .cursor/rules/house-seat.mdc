@@ -1,8 +1,7 @@
 ---
-description: Lauren house rules (LAUREN-RULES.md); always on for every agent.
+description: Lauren Tan's 20 rules, the one house rule set
 alwaysApply: true
 ---
-
 # Lauren Tan's 20 rules (the one house rule set)
 
 These rules apply everywhere we work: the Mac harness, Atlas, Milo, dr eggbot, the Cursor app, the Cursor private worker on the Mac and the Grok CLI. mcode is banned (runaway memory). Source: `~/os-validation-2026-10-07/lauren-tan-2026-10-07.md` (her pstack playbooks at commit d0ef80d and her posts). Edit only this file. Every other place pastes it word for word or points here. Nothing goes into the system unless one of these rules needs it.
@@ -69,11 +68,12 @@ Each names the check that enforces it (rule 15). "OPEN" means the check does not
 - A verify check reads only files the worker can see (inside the job folder, or committed). It tests a pattern or a fact, not a value that can move. The brief and the check name the same thing. (7)
 - Model roles: on the Mac, `AI-OS/Runtime/models.toml`. In Cursor: composer-2.5 or grok-4.7, standard (never Fast), medium effort, never Opus; the Other Models pool only for occasional review. The verifier's family differs from the builder's. (19, 9)
 - Work runs on the Cursor private worker on the Mac, each unit in its own fresh GitHub clone, as many in parallel as the Mac has room for (check free memory and swap before heavy steps). (6, 16)
+- First understand the task, break it into independent sections, and run them in parallel as separate agents on separate branches to finish faster, without compromising quality. (6, 16)
 - On the Mac, the Grok CLI builds and Composer verifies. (9)
-- On Cursor cloud agents, Composer 2.5 builds (Fast off) and Grok 4.7 verifies as a Cursor model at medium effort (never Fast). The Grok CLI does not run inside Cursor cloud agents. (9)
+- On Cursor cloud agents, Composer builds and the Grok CLI verifies. (9)
 - Builder and verifier are always two different models. (9)
 - mcode is banned. (9)
-- Use Cursor cloud agents without asking when the Mac is the bottleneck (swap near full or jobs queued). Otherwise prefer the Mac worker. (14)
+- Cloud agents only when Lazaros asks for one. (14)
 - A Mac job's finish (its PR and its agent report) is what wakes the coordinator. No agent polls or asks another agent for status. One zero-token shell script (launchd, hourly) may list unpushed commits, open PRs without a verdict for their head, and idle units, and write a file or notify only when a unit is stuck; it never wakes a model to ask. (12, 27)
 - Bug to test: every bug fixed gets a permanent test or check, committed as a failing repro before the fix. Extends rule 15. (15, 25)
 - Release gate: `npm run gate:ui` must pass on the exact build (Chromium and WebKit at 1440, 1280, 1024, 800 and 390) before any deploy, and `scripts/deploy-app-pages.sh` refuses to run without that result for the same build hash. No skip flag. A deploy still needs Lazaros's yes. (7, 8, 10, 14)
